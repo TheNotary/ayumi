@@ -1,22 +1,24 @@
-##              EXAMPLE CONFIG.YML              ##
-#                                                #
-# I keep this as close to my own config.yml file #
+######################
+#    REDIS CONFIG    #
+######################
 
-#### REDIS CONFIG ####
 redis:
   # You may specify a host/port
   host: localhost
   port: 6379
-  # or a local unix socket
-  path: "/tmp/redis.sock"
-  # NOTE: Unix socket path will override host/port settings
+  # If a unix socket path is defined, this will override host/port settings
+  # path: "/tmp/redis.sock"
 
-#### IRC / CINCH FRAMEWORK CONFIG ####
+
+######################################
+#    IRC / CINCH FRAMEWORK CONFIG    #
+######################################
+
 irc:
+    # (raw/stock) Cinch settings go here.
+    # Refer to Cinch doc for more info
+    # http://www.rubydoc.info/github/cinchrb/cinch/
   cinch:
-    # (raw/stock) Cinch settings go here
-    # refer to Cinch doc for more info
-    ## http://www.rubydoc.info/github/cinchrb/cinch/
     server: "somewhere.net"
     port: 6679
     ssl.use: true
@@ -36,15 +38,18 @@ irc:
   admins:
     - bazz
 
-  ## PLUGIN SETTINGS ##
+  #####################
+  #  PLUGIN SETTINGS  #
+  #####################
+  
   plugins:
-    # plugins are specified by key,
+    # Plugins are specified by key.
     ## The key MUST match the plugin Class Name EXACTLY
 
-    # you may exclude certain plugins from operating in certain channels via the
+    # You may exclude certain plugins from operating in certain channels via the
     ## "exclude" sub-key. It takes an array of channel names.
 
-    # plugin options may be specified in an "options" sub-key
+    # Plugin options may be specified in an "options" sub-key
       # these can be referenced from within the plugin as follows:
       # config[:option1] or config[:option1]['option2']
       # it's a bit strange manner right now:
